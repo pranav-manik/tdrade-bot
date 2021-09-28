@@ -29,7 +29,7 @@ TDSession = TDClient(
 TDSession.login()
 
 
-total_cash = os.getenv('TOTAL_CASH')
+total_cash = int(os.getenv('TOTAL_CASH'))
 
 def perc_calc(p):
 	return total_cash*(p/100)
@@ -108,6 +108,7 @@ total_spent = round(sum([x[5] for x in tickers.values()]), 2)
 
 perc_diff = round(((total_cash-total_spent)/total_spent)*100, 2)
 reserve = round(total_cash-total_spent, 2)
+
 with open(os.getenv('RESERVES_PATH')) as fp:
 	total_reserves = fp.readline()
 total_reserves = round(float(total_reserves) + reserve, 2)
@@ -170,4 +171,3 @@ if tickers[reserve_tick][3] < total_reserves:
 
 	df_t_ = df.T
 	df_t_.to_csv(os.getenv('CSV_PATH'), index=True, mode='a', date_format='%m/%d/%Y %H:%M:%S')
-	
