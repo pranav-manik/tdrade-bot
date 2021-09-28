@@ -4,7 +4,7 @@ automated stock transactions for TD Ameritrade based on tickers and percentages 
 # Requirements
 python 3.8+
 
-#Set up
+# Set up
 fill out a .env file with the following info
 ```
 CLIENT_ID='fsajfhsdakfjhasd234678736q4dh3q'
