@@ -9,6 +9,7 @@ import numpy as np
 import datetime
 from os.path import exists
 import csv
+import mail as mail
 
 # set up pretty printer
 pp = pprint.PrettyPrinter(indent=4)
@@ -61,8 +62,6 @@ for key,value in multiple_quotes.items():
 df = pd.DataFrame(data=tickers, index=['date', 'percentage','total','price','shares bought', 'order total','52WkHigh', '52WkLow'])
 print(df)
 print('')
-# df_t_ = df.T
-# df_t_.to_csv(os.getenv('CSV_PATH'), index=True, mode='a')
 
 
 order = {
@@ -171,3 +170,24 @@ if tickers[reserve_tick][3] < total_reserves:
 
 	df_t_ = df.T
 	df_t_.to_csv(os.getenv('CSV_PATH'), index=True, mode='a', date_format='%m/%d/%Y %H:%M:%S')
+
+
+
+email_info = {
+				"send_from" : os.getenv("EMAIL"), \
+				"password" : os.getenv("EMAIL_PASSWORD"), \
+				"send_to" : [os.getenv("EMAIL")], \
+				"subject" : "TDrades", \
+				"text" : "your orders went though", \
+				"server" : os.getenv("EMAIL_SERVER"), \
+				"files" : ["sales.csv"]
+			}
+
+# send email
+mail.send_mail(	email_info["send_from"], \
+				email_info["password"], \
+				email_info["send_to"], \
+				email_info["subject"], \
+				email_info["text"], \
+				email_info["server"], \
+				email_info["files"]);
