@@ -13,6 +13,10 @@ CREDENTIALS_FILE_PATH='/path/to/file.json'
 CSV_PATH='/path/to/file.csv'
 RESERVES_PATH='/path/to/file.txt'
 TOTAL_CASH=1500
+EMAIL='test@email.com'
+EMAIL_PASSWORD='PASWWROD'
+EMAIL_SERVER='smtp.email.com:234'
+
 ```
 set tickers og your choice for under tickers with percentages in tdrade.py
 ```

@@ -180,7 +180,6 @@ email_info = {
 				"subject" : "TDrades", \
 				"text" : "your orders went though", \
 				"server" : os.getenv("EMAIL_SERVER"), \
-				"files" : ["sales.csv"]
 			}
 
 # send email
@@ -189,5 +188,4 @@ mail.send_mail(	email_info["send_from"], \
 				email_info["send_to"], \
 				email_info["subject"], \
 				email_info["text"], \
-				email_info["server"], \
-				email_info["files"]);
+				email_info["server"]);
