@@ -84,8 +84,8 @@ for tck in tickers:
       }
     }]
     # PLACES ORDER
-	# order_resp = TDSession.place_order(account=account_id, order=order)
-	order_resp = {'status_code': 201, 'order_id': '44541234768'}
+	order_resp = TDSession.place_order(account=account_id, order=order)
+	# order_resp = {'status_code': 201, 'order_id': '44541234768'}
 	if order_resp['status_code'] == 201:
 		tickers[tck].append(order_resp['order_id'])
 		print("transaction successful")
@@ -150,8 +150,8 @@ if tickers[reserve_tick][3] < total_reserves:
 	reserve_order[reserve_tick][4] = int(total_reserves//tickers[reserve_tick][3])
 
 
-# 	order_resp = TDSession.place_order(account=account_id, order=order)
-	order_resp = {'status_code': 201, 'order_id': '44541234768'}
+	order_resp = TDSession.place_order(account=account_id, order=order)
+	# order_resp = {'status_code': 201, 'order_id': '44541234768'}
 	if order_resp['status_code'] == 201:
 		reserve_order[reserve_tick][8] = order_resp['order_id']
 		print("transaction successful")
